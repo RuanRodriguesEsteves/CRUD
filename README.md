@@ -23,26 +23,40 @@ cd projeto-crud
 ### Backend
 
 composer install
+
 cp .env.example .env
+
 php artisan key\:generate
 
 Configure o banco de dados no `.env`:
+
+
 DB\_CONNECTION=pgsql
+
 DB\_HOST=127.0.0.1
+
 DB\_PORT=5432
+
 DB\_DATABASE=nome\_do\_banco
+
 DB\_USERNAME=usuario
+
 DB\_PASSWORD=senha
 
+
 Migrations e seeders:
+
 php artisan migrate --seed
 
+
 Servidor local:
+
 php artisan serve
 
 ### Frontend
 
 npm install
+
 npm run dev
 
 ## 📌 Funcionalidades

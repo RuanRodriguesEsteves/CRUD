@@ -45,6 +45,25 @@ php artisan serve
 npm install  
 npm run dev
 
+## ⚙️ Configuração do PHP
+
+Antes de rodar o projeto, verifique se o arquivo `php.ini` está configurado corretamente.  
+Edite o `php.ini` e ative/extensões necessárias:
+
+- Remova o `;` (ponto e vírgula) antes das linhas abaixo:  
+extension=fileinfo  
+extension=mbstring  
+extension=pdo_mysql  
+
+- Ajuste o limite de upload para arquivos CSV maiores:  
+upload_max_filesize = 10M  
+post_max_size = 12M  
+
+- Certifique-se de que a timezone está definida:  
+date.timezone = America/Sao_Paulo
+
+Após salvar as alterações, **reinicie o servidor PHP** ou o serviço que estiver usando (Apache/Nginx).  
+
 ## 📌 Funcionalidades
 
 * Tela de login e registro (registro opcional, apenas login em produção)

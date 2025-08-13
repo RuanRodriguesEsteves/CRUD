@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">Home</a>
+                        <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" href="{{ url('/dashboard') }}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Request::is('instalacaofisica') ? 'active' : '' }}" href="{{ route('instalacaofisica.index') }}">Importação</a>
@@ -28,12 +28,24 @@
                     <li class="nav-item">
                         <a class="nav-link {{ Request::is('instalacaofisica/listar') ? 'active' : '' }}" href="{{ route('instalacaofisica.listar') }}">Visualização</a>
                     </li>
+
+                    @auth
+                        <li class="nav-item">
+                            <!-- Logout via form POST -->
+                            <form method="POST" action="{{ route('logout') }}" class="d-inline">
+                                @csrf
+                                <button type="submit" class="nav-link btn btn-link text-white" style="display: inline; padding: 0; margin: 0;">
+                                    Sair
+                                </button>
+                            </form>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>
     </nav>
 
-    <main class="container my-4">
+    <main class="container my-4" style="padding-top: 70px;">
         @yield('content')
     </main>
 

@@ -1,61 +1,64 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projeto CRUD – Instalações Escolares
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 💡 Descrição
 
-## About Laravel
+Aplicação fullstack para gerenciamento de instalações escolares, com upload de CSV e CRUD completo.
+Backend em **Laravel 12** e frontend usando **Blade com Bootstrap 5**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Tecnologias
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* **Backend:** PHP 8.x + Laravel 12
+* **Frontend:** Blade + Bootstrap 5
+* **Banco de Dados:** MySQL ou MariaDB
+* **Autenticação:** Laravel Breeze (login/logout)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🛠 Como Executar
 
-## Learning Laravel
+### Clone o repositório
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+git clone [https://github.com/seuusuario/projeto-crud.git](https://github.com/seuusuario/projeto-crud.git)
+cd projeto-crud
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Backend
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+composer install
+cp .env.example .env
+php artisan key\:generate
 
-## Laravel Sponsors
+Configure o banco de dados no `.env`:
+DB\_CONNECTION=mysql
+DB\_HOST=127.0.0.1
+DB\_PORT=3306
+DB\_DATABASE=nome\_do\_banco
+DB\_USERNAME=usuario
+DB\_PASSWORD=senha
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Migrations e seeders:
+php artisan migrate --seed
 
-### Premium Partners
+Servidor local:
+php artisan serve
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Frontend
 
-## Contributing
+npm install
+npm run dev
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 📌 Funcionalidades
 
-## Code of Conduct
+* Tela de login e registro (registro opcional, apenas login em produção)
+* Dashboard protegido (somente usuários logados)
+* CRUD completo de Instalações Físicas
+* Upload de CSV com importação de dados
+* Visualização de registros em tabela
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🔐 Usuário de teste
 
-## Security Vulnerabilities
+* **Login:** [admin@teste.com](mailto:admin@teste.com)
+* **Senha:** 123456
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+> Obs.: Este usuário é criado automaticamente pelo seeder no `DatabaseSeeder`.
 
-## License
+## 📄 Licença
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+MIT

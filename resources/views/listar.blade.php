@@ -400,4 +400,10 @@
     {{ $dados->links('pagination::bootstrap-5') }}
 </div>
 
+<div class="mb-3 text-end">
+    <a href="{{ route('instalacaofisica.criar') }}" class="btn btn-primary">
+        + Novo Registro
+    </a>
+</div>
+
 @endsection

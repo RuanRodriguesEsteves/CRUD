@@ -53,11 +53,12 @@ Edite o `php.ini` e ative/extensões necessárias:
 - Remova o `;` (ponto e vírgula) antes das linhas abaixo:  
 extension=fileinfo  
 extension=mbstring  
-extension=pdo_mysql  
+extension=pdo_pgsql  
 
 - Ajuste o limite de upload para arquivos CSV maiores:  
 upload_max_filesize = 10M  
 post_max_size = 12M  
+memory_limit = 128M
 
 - Certifique-se de que a timezone está definida:  
 date.timezone = America/Sao_Paulo

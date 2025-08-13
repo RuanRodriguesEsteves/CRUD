@@ -7,16 +7,17 @@ Backend em **Laravel 12** e frontend usando **Blade com Bootstrap 5**.
 
 ## 🚀 Tecnologias
 
-* **Backend:** PHP 8.x + Laravel 12
+* **Backend:** PHP 8.4.6 + Laravel 12
 * **Frontend:** Blade + Bootstrap 5
-* **Banco de Dados:** MySQL ou MariaDB
+* **Banco de Dados:** PostgreSQL
 * **Autenticação:** Laravel Breeze (login/logout)
 
 ## 🛠 Como Executar
 
 ### Clone o repositório
 
-git clone [https://github.com/seuusuario/projeto-crud.git](https://github.com/seuusuario/projeto-crud.git)
+git clone [https://github.com/RuanRodriguesEsteves/CRUD.git](https://github.com/RuanRodriguesEsteves/CRUD.git)
+
 cd projeto-crud
 
 ### Backend
@@ -26,9 +27,9 @@ cp .env.example .env
 php artisan key\:generate
 
 Configure o banco de dados no `.env`:
-DB\_CONNECTION=mysql
+DB\_CONNECTION=pgsql
 DB\_HOST=127.0.0.1
-DB\_PORT=3306
+DB\_PORT=5432
 DB\_DATABASE=nome\_do\_banco
 DB\_USERNAME=usuario
 DB\_PASSWORD=senha
@@ -55,10 +56,6 @@ npm run dev
 ## 🔐 Usuário de teste
 
 * **Login:** [admin@teste.com](mailto:admin@teste.com)
-* **Senha:** 123456
+* **Senha:** 12345678
 
 > Obs.: Este usuário é criado automaticamente pelo seeder no `DatabaseSeeder`.
-
-## 📄 Licença
-
-MIT

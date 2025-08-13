@@ -1,12 +1,11 @@
 @extends('layout')
 
-@section('title', 'Criar Instalação Física')
+@section('title', 'Criação')
 
 @section('content')
 <div class="container mt-5">
     <h1 class="mb-4">Criar nova Instalação Física</h1>
 
-    {{-- Mensagens de erro --}}
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Ops!</strong> Houve alguns problemas com seus dados.<br><br>
@@ -18,7 +17,6 @@
         </div>
     @endif
 
-    {{-- Formulário de criação --}}
     <form action="{{ route('instalacaofisica.salvar') }}" method="POST">
         @csrf
 

@@ -9,12 +9,11 @@ use Illuminate\Support\Facades\Route;
 });
 */
 
-Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/', [IndexController::class, 'index'])->name('home');// Página Principal
 
 Route::prefix('instalacaofisica')->name('instalacaofisica.')->group(function () {
-    Route::get('/', [InstalacaoFisicaController::class, 'iniciar'])->name('index');
-    Route::post('/', [InstalacaoFisicaController::class, 'importar'])->name('importar');
-    
+    Route::get('/', [InstalacaoFisicaController::class, 'iniciar'])->name('index'); 
+    Route::post('/', [InstalacaoFisicaController::class, 'importar'])->name('importar'); // Tela de Importação
     Route::get('/listar', [InstalacaoFisicaController::class, 'listar'])->name('listar'); // Tela com todos os registros
     Route::get('/criar', [InstalacaoFisicaController::class, 'criar'])->name('criar'); // Form de criação
     Route::post('/salvar', [InstalacaoFisicaController::class, 'salvar'])->name('salvar'); // Salvar novo

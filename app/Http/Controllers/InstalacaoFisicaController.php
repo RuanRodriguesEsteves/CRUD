@@ -10,40 +10,51 @@ use App\Models\InstalacaoFisica;
 
 class InstalacaoFisicaController extends Controller {
 
+    //Função para iniciar a view de importação de planilha
     public function iniciar() {
         return view('instalacaofisica');
-        
     }
 
+    //Função para importar a planilha para o Banco de Dados
     public function importar(Request $request) {
+        //Realiza Validação do tipo do arquivo
         $request->validate([
             'arquivo' => 'required|file|mimes:csv,txt',
         ]);
 
-        $arquivo = $request->file('arquivo');
+        //Realiza a importação dos dados da planilha para o Banco de Dados Relacional utilizando o pacote maatwebsite/excel
+        Excel::import(new InstalacaoFisicaImport, $request->file('arquivo'));
 
-        Excel::import(new InstalacaoFisicaImport, $arquivo);
-
+        //Retorna pra tela anterior passando o parâmetro de 'success' e mensagem
         return back()->with('success', 'Importação realizada com sucesso!');
     }
 
+    //Função para Listar os dados armazenados no Banco de Dados Relacional
     public function listar() {
-        $dados = \App\Models\InstalacaoFisica::paginate(100);
+        //Armazena as informações do banco dentro da variável dados
+        $dados = \App\Models\InstalacaoFisica::orderBy('id', 'asc')->paginate(100);
+
+        //Retorna a view com a variável dados para exibião na view.
         return view('listar', compact('dados'));
     }
     
+    //Função para deletar registro do Banco de Dados
     public function deletar($id) {
         try {
+            //Produra o registro baseado no parâmetro id passado na chamada função.
             $registro = InstalacaoFisica::findOrFail($id);
+
             $registro->delete();
 
+            //Retorna para a view com a mensagem de sucesso.
             return redirect()->back()->with('success', 'Registro deletado com sucesso!');
         } catch (\Exception $e) {
-            // Log do erro pode ser adicionado aqui se quiser: Log::error($e->getMessage());
+            // Retorna para a view com a mensagem de erro.
             return redirect()->back()->with('error', 'Erro ao deletar o registro. Tente novamente.');
         }
     }
 
+    // Função para abrir a tela de edição de acordo com id passado no chamado da função
     public function editar($id)
     {
         $registro = InstalacaoFisica::findOrFail($id);
@@ -54,7 +65,7 @@ class InstalacaoFisicaController extends Controller {
     {
         $registro = InstalacaoFisica::findOrFail($id);
 
-        // Validação (ajuste os campos conforme necessário)
+        // Realiza a validação de todas as colunas do banco de dados.
         $validated = $request->validate([
             'nomedep' => 'required|string|max:255',
             'de' => 'required|string|max:255',
@@ -230,18 +241,21 @@ class InstalacaoFisicaController extends Controller {
             'quiosque' => 'required|integer|min:0'
         ]);
 
-        // Atualiza os dados
+        // Realiza o UPDATE nas colunas alteradas
         $registro->update($validated);
 
+        //Redireciona pra view de listar, e exibe mensagem de sucesso.
         return redirect()->route('instalacaofisica.listar')
             ->with('success', 'Registro atualizado com sucesso!');
     }
 
+    //Função pra chamar a tela de criação do registro no banco de dados
     public function criar()
     {
         return view('criar');
     }
 
+    //Função pra salvar(INSERT) novos registros no banco de dados 
     public function salvar(Request $request)
     {
         $validated = $request->validate([
@@ -420,8 +434,10 @@ class InstalacaoFisicaController extends Controller {
         ]);
 
         try {
+            //Realizar a inserção das informações no banco de dados
             InstalacaoFisica::create($validated);
 
+            //Redireciona para a view lista com mensagem de sucesso
             return redirect()
                 ->route('instalacaofisica.listar')
                 ->with('success', 'Registro criado com sucesso!');

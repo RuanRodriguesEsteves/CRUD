@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Instalação Física')
+@section('title', 'Visualização')
 
 @section('content')
 <div class="text-center mt-5">

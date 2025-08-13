@@ -187,6 +187,7 @@ class InstalacaoFisicaImport implements ToModel, WithHeadingRow, WithChunkReadin
         ]);
     }
 
+    //Função para separar a importação por planilha e evitar lotação de memória
     public function chunkSize(): int
     {
         return 1000;

@@ -1,22 +1,20 @@
 @extends('layout')
 
-@section('title', 'Instalação Física')
+@section('title', 'Importação')
 
 @section('content')
 <div class="text-center mt-5">
-    <h1 class="display-4 mb-4">Instalação</h1>
+    <h1 class="display-4 mb-4">Importação</h1>
 </div>
 
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <!-- Exibe mensagem de sucesso -->
         @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
 
-        <!-- Exibe erros de validação -->
         @if($errors->any())
             <div class="alert alert-danger">
                 <ul class="mb-0">

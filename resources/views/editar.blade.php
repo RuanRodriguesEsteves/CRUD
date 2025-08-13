@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Editar Instalação Física')
+@section('title', 'Edição')
 
 @section('content')
 <div class="container mt-5">

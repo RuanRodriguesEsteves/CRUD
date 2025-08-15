@@ -59,6 +59,7 @@ extension=pdo_pgsql
 upload_max_filesize = 10M  
 post_max_size = 12M  
 memory_limit = 128M
+max_execution_time = 300
 
 - Certifique-se de que a timezone está definida:  
 date.timezone = America/Sao_Paulo

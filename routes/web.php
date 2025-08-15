@@ -16,17 +16,17 @@ require __DIR__.'/auth.php';
 // Rotas que exigem login
 Route::middleware(['auth'])->group(function () {
 
-    // Dashboard do Breeze
+    // Dashboard do Breeze(View Personalizada)
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
-    // Perfil do usuário (Breeze)
+    // Perfil do usuário (View Personalizada)
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Sua página principal
+    // Página principal
     Route::get('/home', [IndexController::class, 'index'])->name('home');
 
     // Rotas de InstalacaoFisica
